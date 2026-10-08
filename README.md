@@ -5,7 +5,7 @@ One file, `resume.yaml`, builds the résumé PDF and the website.
 ## Updating
 
 1. Edit `resume.yaml`.
-2. Push to `main`. GitHub Actions builds everything and deploys the site, with the PDF at `/andre-williams-resume.pdf`.
+2. Commit to `main` (directly, or by merging a PR). GitHub Actions builds and deploys in about a minute, with the PDF at `/andre-williams-resume.pdf`. A failed build never touches the live site.
 3. To update LinkedIn, copy from the live site: the About text is `summary` in `resume.yaml`, and each role's bullets match the site.
 
 ## Building locally
