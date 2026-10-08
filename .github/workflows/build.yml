@@ -21,11 +21,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-extra
+      # Minimal TeX Live with only the packages the résumé uses. Cached after
+      # the first run, so later runs restore it in seconds instead of
+      # downloading Ubuntu's multi-gigabyte font bundle every time.
+      # If a build ever fails with "File `something.sty' not found",
+      # add that package name to the list below.
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v4
+        with:
+          packages: >
+            scheme-basic latexmk
+            xcolor enumitem etoolbox xkeyval iftex
+            fira fontaxes mweights fontawesome ec
+            anyfontsize needspace preprint
+
+      - name: Add TeX Live to PATH
+        run: echo "$HOME/texlive/bin/x86_64-linux" >> "$GITHUB_PATH"
 
       - uses: actions/setup-python@v5
         with:

@@ -12,7 +12,7 @@ One file, `resume.yaml`, builds the résumé PDF and the website.
 
 ```bash
 pip install -r requirements.txt
-python build.py            # needs a TeX install with latexmk and texlive-fonts-extra
+python build.py            # needs TeX Live/MiKTeX with the packages listed in build.yml
 python build.py --no-pdf   # site only (reuses the last PDF if there is one)
 ```
 
