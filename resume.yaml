@@ -1,0 +1,212 @@
+# Single source of truth for the résumé PDF and the website.
+# Edit this file, push, and GitHub Actions rebuilds everything.
+#
+# Dates are YYYY-MM or YYYY-MM-DD (shown as "Apr 2025" either way).
+# Use `end: present` for a current role.
+# `reviewed: false` marks entries carried over from the old résumé that
+# haven't been rewritten yet. It isn't shown anywhere.
+#
+# This repo is public: keep phone numbers and street addresses out of it.
+
+basics:
+  name: Andre Williams
+  label: Tech Innovation Lead, Software & Platform Engineering
+  location: Tampa, FL
+  email: aewilliams876@gmail.com
+  website: andre-williams.com
+  linkedin: andre-williams1
+  github: andrewilliams1
+  # Site About (first person). Also the text to paste into LinkedIn's About.
+  summary: >-
+    I'm a software and platform engineering lead in Tampa, supporting the J6
+    directorate at U.S. Central Command (USCENTCOM) through General Dynamics
+    Information Technology (GDIT). I help set the technical direction for the
+    Solutions Delivery division and stay hands-on in the architecture: enterprise
+    AI, Kubernetes, and secure software supply chains. Before that, I stood up
+    the command's first enterprise DevSecOps platform, and spent the years
+    before that building .NET and Azure applications for USCENTCOM and U.S.
+    Special Operations Command (USSOCOM).
+
+  # Résumé summary (résumé voice, no "I"). Falls back to `summary` if removed.
+  resume_summary: >-
+    Software and platform engineering lead supporting U.S. Central Command
+    (USCENTCOM) J6 Solutions Delivery through General Dynamics Information
+    Technology (GDIT). Helps set the division's technical direction and stays
+    hands-on in architecture across enterprise AI, Kubernetes, and secure software supply
+    chains. Stood up the command's first enterprise DevSecOps platform, building
+    on six years of .NET and Azure development for USCENTCOM and U.S. Special
+    Operations Command (USSOCOM).
+
+work:
+  - org: General Dynamics Information Technology
+    title: Tech Innovation Lead, Software & Platform Engineering
+    start: 2026-08-08
+    end: present
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Lead the software and platform engineering discipline for USCENTCOM J6 Solutions Delivery, setting technical direction and engineering standards while retaining ownership of the DevSecOps platform.
+      - Standing up LibreChat as an enterprise AI chat platform and designing its integration roadmap, from built-in connectors to custom tooling.
+      - Automating Python dependency collection with security scanning in GitLab continuous integration and delivery (CI/CD) pipelines, ensuring third-party packages are vetted before they reach the command's data science platform.
+      - Architected Kubernetes deployment strategies for the command's private cloud.
+      - Built a cloned ServiceNow environment and facilitated testing of platform version upgrades ahead of the production rollout.
+
+  - org: General Dynamics Information Technology
+    title: DevSecOps Lead
+    start: 2025-04-28
+    end: 2026-08-07
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Led the deployment of USCENTCOM's first enterprise DevSecOps platform on GitLab Ultimate and Harbor across multiple network enclaves, configuring single sign-on through F5 and Defense Information Systems Agency (DISA) ICAM with the infrastructure teams and giving J3, J6, and J8 teams secure, automated CI/CD.
+      - Integrated Semgrep, Hadolint, and Trivy scanning and Syft software bill of materials (SBOM) generation into CI/CD pipelines, detecting vulnerabilities in source code, container images, and dependencies during development.
+      - Built reusable CI/CD pipeline templates that configure jobs automatically from each repository's structure, giving every project a consistent, reproducible pipeline.
+      - Onboarded and trained teams across directorates and wrote platform documentation, so teams could build and ship on the platform independently.
+
+  - org: CACI International Inc.
+    title: Software Engineering Lead
+    start: 2024-04-30
+    end: 2025-04-25
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Led a team of software engineers at USCENTCOM in designing, developing, and deploying mission-critical applications for Department of Defense (DoD) systems.
+      - Architected and deployed secure, scalable applications on Azure App Services, ensuring high availability and compliance with DoD security requirements.
+      - Integrated Entra ID (formerly Azure AD) for authentication and authorization, implementing OAuth 2.0, OpenID Connect, and SAML for application access control.
+      - Configured Managed Identities so applications access Azure services without stored credentials, strengthening security and compliance.
+      - Integrated Azure Key Vault for secure storage and management of application secrets, API keys, and encryption certificates.
+
+  - org: SAIC Inc.
+    title: Senior Software Engineer
+    start: 2022-03-28
+    end: 2024-04-29
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Developed and maintained ASP.NET and JavaScript applications in a classified environment.
+      - Worked with data engineers to build web services feeding data into extract, transform, load (ETL) platforms.
+      - Migrated code repositories from legacy Team Foundation Server (TFS) to Azure DevOps to improve source control and task tracking.
+      - Piloted the transition from Waterfall to Agile, allowing the team to incorporate customer feedback through shorter development cycles.
+
+  - org: Telesis, a Belcan Company
+    title: ASP.NET Core / MVC Developer
+    start: 2019-05-28
+    end: 2022-03-25
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Developed and maintained ASP.NET and JavaScript applications in a classified environment at USSOCOM.
+      - Converted a custom SharePoint application to its .NET Core equivalent.
+      - Developed and maintained financial and program management software that supported the warfighter.
+      - Worked within an Agile software development process.
+
+  - org: Freelance
+    title: IT Consultant
+    start: 2018-06
+    end: 2019-05
+    location: Tampa, FL
+    reviewed: true
+    bullets:
+      - Integrated new systems into a client's existing domain and provided on-call technical support.
+
+  - org: Info Tech, Inc.
+    title: Software Developer, Senior Design
+    start: 2017-08
+    end: 2018-04
+    location: Gainesville, FL
+    reviewed: true
+    bullets:
+      - Through UF's Integrated Product and Process Design (IPPD) program, built an automated image-recognition system on Amazon Web Services (AWS) and the Google Cloud Vision API that captures structured data from smartphone photos of documents, equipment, and sensor displays, projected to save an estimated $2.5M a year in labor costs.
+
+projects:
+  # Newest first. `resume: false` shows a project on the site only.
+  - name: Personal Website
+    context: Personal project (2026)
+    url: https://github.com/andrewilliams1/andrewilliams1.github.io
+    resume: false
+    tags: [Python, Jinja, LaTeX, GitHub Actions]
+    bullets:
+      - Built this site to host my résumé and project write-ups, generated from a single YAML file alongside my PDF résumé so the two never drift apart.
+      - On every push, GitHub Actions compiles the LaTeX résumé and deploys the site to GitHub Pages.
+
+  - name: Cryptocurrency Mining Manager
+    status: shipped
+    tags: [Python, NiceHash API, AutoHotkey]
+    bullets:
+      - Created Python scripts using the NiceHash API to automate the sale and transfer of cryptocurrency.
+      - Created AutoHotkey scripts to start and stop mining and switch overclock profiles based on computer usage.
+
+  - name: Orthopedic Image Grader   # no repo link: code may still be in use by the research lab
+    context: University of Florida, Intro to Software Engineering (2017)
+    tags: [MEAN stack]
+    bullets:
+      - Rebuilt a desktop tool for grading histology images of knee osteoarthritis as a MEAN (MongoDB, Express, Angular, Node.js) stack web app, with a tutorial-based training mode for new graders.
+
+  - name: UF Directory App
+    context: University of Florida, Intro to Software Engineering (2017)
+    url: https://github.com/andrewilliams1/UF-Directory-App
+    resume: false
+    tags: [Node.js, Express, MongoDB, AngularJS]
+    bullets:
+      - Built a full-stack directory of UF buildings across five guided course assignments, progressing from a Node.js server to an AngularJS front end, MongoDB persistence, and an Express REST API.
+      - Geocoded building addresses with the Google Maps API and displayed every listing on an interactive map view.
+
+skills:
+  # Items within each group are ordered by recency (most recent first).
+  - group: Platforms & Infrastructure
+    items:
+      - Kubernetes
+      - vSphere Kubernetes Service (VKS)
+      - VMware Cloud Foundation (VCF)
+      - ServiceNow
+      - Docker
+  - group: DevSecOps & Security
+    items:
+      - GitLab Ultimate (CI/CD)
+      - Harbor
+      - Semgrep
+      - Trivy
+      - Syft (SBOM)
+      - Hadolint
+      - Software supply-chain security
+      - Single sign-on (F5, DISA ICAM)
+  - group: AI & Data
+    items:
+      - Enterprise AI platforms (Ask Sage, Maven Smart System, LibreChat)
+      - Posit
+  - group: Cloud & Identity
+    items:
+      - Microsoft Azure (App Services, Key Vault, Managed Identities)
+      - Entra ID
+      - OAuth 2.0
+      - OpenID Connect
+      - SAML
+      - Amazon Web Services
+      - Google Cloud Platform
+  - group: Languages
+    items: [Python, C#, JavaScript, SQL, PowerShell, HTML, CSS]
+  - group: Frameworks & Tools
+    items:
+      - ASP.NET 8 / 6
+      - ASP.NET MVC 5
+      - Entity Framework Core
+      - Azure DevOps
+      - Team Foundation Server
+      - SharePoint
+      - Web Forms
+      - Agile / Scrum
+
+certifications:
+  - CompTIA Security+
+
+education:
+  - school: University of Florida
+    degree: BS Computer Science
+    start: 2014-07
+    end: 2018-05
+    location: Gainesville, FL
+
+languages:          # not shown on the résumé or site unless you decide to
+  - English (Native)
+  - Spanish (Limited Working)
+  - French (Limited Working)
