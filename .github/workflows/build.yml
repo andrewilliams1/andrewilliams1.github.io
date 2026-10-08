@@ -1,9 +1,10 @@
 name: Build résumé and site
 
+# One run per change: every push to main builds and deploys.
+# (Merging a PR is a push to main, so the same applies.)
 on:
   push:
     branches: [main]
-  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -46,18 +47,11 @@ jobs:
 
       - run: python build.py
 
-      # PDF downloadable from every run (handy for reviewing PRs)
-      - uses: actions/upload-artifact@v4
-        with:
-          name: resume-pdf
-          path: build/andre-williams-resume.pdf
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
